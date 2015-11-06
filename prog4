@@ -1,0 +1,71 @@
+#include<stdio.h>
+#include<conio.h>
+typedef struct _Med{
+	int ouro;
+	int prata;
+	int bronze;
+	char nome[40];
+}Med;
+
+#define tam 3
+int main(){
+	Med lista[tam];
+	int i=0;
+	while(i<tam)
+	{
+		printf("-------------Pais %d----------- \n",i+1);
+		puts("Digite nome do pais");
+		scanf("%s",&lista[i].nome);
+		puts("Digite Quantidade de Ouro");
+		scanf("%d", &lista[i].ouro);
+			puts("Digite Quantidade de Prata");
+		scanf("%d", &lista[i].prata);
+			puts("Digite Quantidade de Bronze");
+		scanf("%d", &lista[i].bronze);		
+		
+		i++;
+	}
+	i=0;
+	puts("Quadro de Medalhas");
+	Med pri;
+	pri.ouro=0;
+	pri.prata=0;
+	pri.bronze=0;
+	
+	while(i<tam){
+	    if(pri.ouro<lista[i].ouro)		
+		{
+			pri=lista[i];
+			
+		}
+		else if(pri.ouro==lista[i].ouro){
+		if(pri.prata<lista[i].prata)		
+		{
+			pri=lista[i];
+			
+		}
+		else if(pri.prata==lista[i].prata){
+		if(pri.bronze<lista[i].bronze)		
+		{
+			pri=lista[i];
+			
+		}
+		}
+	}
+		printf("------Pais %d - %s----- ouro: %d prata %d bronze %d \n", i+1, lista[i].nome, lista[i].ouro,lista[i].prata,lista[i].bronze);
+		i++;
+	}
+	printf("Campeao - %s ouro: %d prata:%d bronze:%d",pri.nome,pri.ouro,pri.prata,pri.bronze);
+	
+	
+	
+	
+	
+
+	getch();
+	return 0;
+	
+	
+	
+	
+}
